@@ -1,13 +1,10 @@
 {
-  "ComponentIndexes": {
-    "Component1": 4
-  },
+  "ComponentIndexes": {},
   "ControlUniqueIds": {
     "App": 1,
     "Button1": 40,
     "Button2": 41,
     "Button3": 16,
-    "Component1": 3,
     "DataCardKey1": 22,
     "DataCardKey2": 27,
     "DataCardKey3": 32,
@@ -53,7 +50,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "06/24/2022 12:33:51",
+  "HeaderLastSavedDateTimeUTC": "06/24/2022 12:44:08",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "20ca9c64-4a00-4099-be10-12f2a60c383d": "\"/providers/microsoft.powerapps/apis/shared_powerappsnotification/connections/21776a4402cc448fbc5b8b888fe1521c\"",
@@ -70,12 +67,8 @@
     "Coat_of_arms_of_Ghana.svg": "https://docserverpwaprodeus.blob.core.windows.net/65ab520c-bc39-4a18-88c2-80a679ce604a-1/resource/Assets0Images02e86016c-8ed9-4be8-809e-9be3c2d0361b.png?sv=2017-04-17&sr=b&sig=ursZlVFydwtj%2B8u%2BRqyrGljmQFYDsfKaH8t0hUtcxb0%3D&spr=https&se=2022-06-25T12%3A46%3A35Z&sp=r"
   },
   "OldLogoFileName": "zpoqbg1c.jpg",
-  "OrderComponentMetadata": {
-    "1951b7b49e204e98a70691f56ec4748e": 0
-  },
-  "OrderComponentTemplate": {
-    "1951b7b49e204e98a70691f56ec4748e": 0
-  },
+  "OrderComponentMetadata": {},
+  "OrderComponentTemplate": {},
   "OrderDataSource": {
     "BingMaps": 0,
     "Collection1": 5,
@@ -101,7 +94,6 @@
     "Button1": 28,
     "Button2": 29,
     "Button3": 5,
-    "Component1": 0,
     "DataCardKey1": 10,
     "DataCardKey2": 15,
     "DataCardKey3": 20,
