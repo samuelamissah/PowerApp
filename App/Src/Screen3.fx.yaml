@@ -47,7 +47,8 @@ Screen3 As screen:
         ZIndex: =6
 
     Button3 As button:
-        Fill: =RGBA(128, 128, 128, 1)
+        BorderThickness: =1
+        Fill: =RGBA(0, 0, 0, 1)
         Font: =Font.Georgia
         Height: =70
         OnSelect: =Navigate(Screen1, ScreenTransition.Fade)
