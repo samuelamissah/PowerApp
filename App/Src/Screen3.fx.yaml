@@ -1,5 +1,5 @@
 Screen3 As screen:
-    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 15, RGBA(23, 19, 22, 0.71), Hour(Now()) > 15, RGBA(100, 84, 83, 0.77))
     OnVisible: =
 
     Label1 As label:
@@ -28,7 +28,7 @@ Screen3 As screen:
         FontWeight: =FontWeight.Bold
         Height: =125
         Size: =26
-        Text: =If(Hour(Now()) < 12, "Good Morning", Hour(Now())< 16, "Good Afternoon", Hour(Now()) > 16, "Good Evening")
+        Text: =If(Hour(Now()) < 12, "Good Morning", Hour(Now()) <= 15 , "Good Afternoon", Hour(Now()) >= 16, "Good Evening")
         Width: =548
         X: =50
         Y: =428
@@ -63,7 +63,7 @@ Screen3 As screen:
         FontWeight: =FontWeight.Bold
         Height: =70
         Size: =25
-        Text: =If(Hour(Now()) < 12, "Have A Wonderful day at work",Hour(Now()) > 16, "Safe Journey Home")
+        Text: =If(Hour(Now()) < 12, "Have A Wonderful day at work",Hour(Now()) > 15, "Safe Journey Home")
         Width: =560
         X: =50
         Y: =780
