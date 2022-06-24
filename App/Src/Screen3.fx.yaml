@@ -57,3 +57,14 @@ Screen3 As screen:
         Y: =976
         ZIndex: =7
 
+    Label4 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        Size: =25
+        Text: =If(Hour(Now()) < 12, "Have A Wonderful day at work",Hour(Now()) > 16, "Safe Journey Home")
+        Width: =560
+        X: =50
+        Y: =780
+        ZIndex: =8
+
