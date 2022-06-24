@@ -378,18 +378,18 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen4"
+                  "fullyQualifiedName": "Screen5"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen4",
+                  "fullyQualifiedName": "Screen5",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "module": "Screen4",
-                "type": "Screen4"
+                "module": "Screen5",
+                "type": "Screen5"
               }
             }
           ],
