@@ -10,7 +10,19 @@ Screen5 As screen:
         GUI_DataCard1 As typedDataCard.textualEditCard:
             BorderStyle: =BorderStyle.Solid
             DataField: ="GUI"
-            Default: =ThisItem.GUI
+            Default: = public string GetMACAddress()
+{
+    NetworkInterface[] nics = NetworkInterface.GetAllNetworkInterfaces();
+    String sMacAddress = string.Empty;
+    foreach (NetworkInterface adapter in nics)
+    {
+        if (sMacAddress == String.Empty)// only return MAC Address from first card  
+        {
+            IPInterfaceProperties properties = adapter.GetIPProperties();
+            sMacAddress = adapter.GetPhysicalAddress().ToString();
+        }
+    } return sMacAddress;
+}
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@Table1],DataSourceInfo.DisplayName,"GUI")
             Fill: =RGBA(0, 0, 0, 0)
