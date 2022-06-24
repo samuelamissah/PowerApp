@@ -1,5 +1,5 @@
 "Screen2 As screen.'phoneLayout_Success_ver3.0'":
-    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 15, RGBA(23, 19, 22, 0.71), Hour(Now()) > 15, RGBA(100, 84, 83, 0.77))
 
     iconCircle1 As circle.Circle:
         X: =Parent.Width/2 - Self.Width/2

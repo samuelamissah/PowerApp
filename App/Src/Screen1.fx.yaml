@@ -1,5 +1,5 @@
 Screen1 As screen:
-    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 15, RGBA(23, 19, 22, 0.71), Hour(Now()) > 15, RGBA(100, 84, 83, 0.77))
     OnVisible: |-
         =Collect(Collection1, {Image: Image1.Image})
 
@@ -86,7 +86,7 @@ Screen1 As screen:
 
             DataCardValue1 As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                Default: =Parent.Default
+                Default: =User().FullName
                 DelayOutput: =true
                 DisplayMode: =Parent.DisplayMode
                 Fill: =RGBA(230, 230, 230, 1)
