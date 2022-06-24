@@ -9,7 +9,7 @@
     "ConnectedDataSourceInfoNameMapping": {
       "__PowerAppsId__": "Row id",
       "Date": "Date",
-      "Image": "Image",
+      "GUI": "GUI",
       "Location": "Location",
       "Time_x0020_": "Time ",
       "UserName": "UserName"
