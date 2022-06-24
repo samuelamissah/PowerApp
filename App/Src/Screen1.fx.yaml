@@ -1,0 +1,363 @@
+Screen1 As screen:
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+    OnVisible: |-
+        =Collect(Collection1, {Image: Image1.Image})
+
+    Image1 As image:
+        Height: =287
+        Image: =User().Image
+        Width: =355
+        X: =172
+        Y: =11
+        ZIndex: =2
+
+    Button1 As button:
+        DisplayMode: =If(IsBlank(DataCardValue4) , DisplayMode.Disabled, DisplayMode.Edit)
+        Height: =70
+        OnSelect: |
+            =SubmitForm(Form1);
+             Navigate(Screen2,ScreenTransition.Fade);
+        Size: =24
+        Text: ="Save"
+        Width: =280
+        X: =36
+        Y: =1050
+        ZIndex: =3
+
+    Button2 As button:
+        Height: =70
+        OnSelect: =Set(myLocation, BingMaps.GetLocationByPoint(Location.Latitude, Location.Longitude))
+        Size: =24
+        Text: ="Get Location"
+        Width: =280
+        X: =343
+        Y: =1050
+        ZIndex: =4
+
+    Form1 As form:
+        DataSource: =Table1
+        Height: =732
+        Item: =Defaults(Table1)
+        OnFailure: |-
+            =PowerAppsNotification.SendPushNotification({
+            recipients:[User().Email],
+            message:"BudgeTime failed to record your session" ,
+            openApp:true
+                }); 
+                Navigate(Screen1)
+        OnSuccess: |-
+            =PowerAppsNotification.SendPushNotification({
+            recipients:[User().Email],
+            message:"BudgeTime has recorded your session" ,
+            openApp:true
+                })
+        Width: =620
+        X: =20
+        Y: =298
+        ZIndex: =5
+
+        UserName_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="UserName"
+            Default: =User().FullName
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Table1],DataSourceInfo.DisplayName,"UserName")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =164
+            MaxLength: =DataSourceInfo([@Table1], DataSourceInfo.MaxLength, "UserName")
+            Required: =false
+            Update: =DataCardValue1.Text
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey1 As label:
+                Color: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =118
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =196
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(230, 230, 230, 1)
+                Height: =118
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Tooltip: =Parent.DisplayName
+                Width: =410
+                X: =200
+                Y: =10
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue1.Y + DataCardValue1.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1.Y
+                ZIndex: =4
+
+        Date_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Date"
+            Default: =Text(Now(), LongDate)
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Table1],DataSourceInfo.DisplayName,"Date")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =207
+            MaxLength: =DataSourceInfo([@Table1], DataSourceInfo.MaxLength, "Date")
+            Required: =false
+            Update: =DataCardValue2.Text
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey2 As label:
+                Color: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =164
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =206
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(230, 230, 230, 1)
+                Height: =164
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Tooltip: =Parent.DisplayName
+                Width: =402
+                X: =208
+                Y: =10
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+        "'Time _DataCard1' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Time_x0020_"
+            Default: =Text(Now(),LongTime24)
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Table1],DataSourceInfo.DisplayName,"Time_x0020_")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =159
+            MaxLength: =DataSourceInfo([@Table1], DataSourceInfo.MaxLength, "Time_x0020_")
+            Required: =false
+            Update: =DataCardValue3.Text
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey3 As label:
+                Color: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =119
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =190
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(230, 230, 230, 1)
+                Height: =105
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Tooltip: =Parent.DisplayName
+                Width: =404
+                X: =206
+                Y: =10
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+        Location_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Location"
+            Default: =myLocation.name
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@Table1],DataSourceInfo.DisplayName,"Location")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@Table1], DataSourceInfo.MaxLength, "Location")
+            Required: =true
+            Update: =DataCardValue4.Text
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                Color: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =132
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =166
+                Wrap: =false
+                X: =30
+                Y: =15
+                ZIndex: =1
+
+            DataCardValue4 As text:
+                Align: =Align.Center
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(230, 230, 230, 1)
+                Height: =132
+                HintText: =If(IsBlank(DataCardValue4.Text),"")
+                MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =25
+                Tooltip: =Parent.DisplayName
+                Width: =390
+                X: =220
+                Y: =15
+                ZIndex: =2
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Color: =RGBA(0, 0, 0, 1)
+                FontWeight: =FontWeight.Bold
+                Height: =DataCardKey4.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+

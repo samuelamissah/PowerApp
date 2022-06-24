@@ -1,0 +1,59 @@
+Screen3 As screen:
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+    OnVisible: =
+
+    Label1 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        FontWeight: =FontWeight.Bold
+        Height: =146
+        Size: =26
+        Text: ="Welcome, "& User().FullName 
+        Width: =626
+        X: =14
+        Y: =590
+        ZIndex: =2
+
+    Image4 As image:
+        Height: =320
+        Image: ='Coat_of_arms_of_Ghana.svg'
+        Width: =430
+        X: =98
+        Y: =3
+        ZIndex: =4
+
+    Label2 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        FontWeight: =FontWeight.Bold
+        Height: =125
+        Size: =26
+        Text: =If(Hour(Now()) < 12, "Good Morning", Hour(Now())< 16, "Good Afternoon", Hour(Now()) > 16, "Good Evening")
+        Width: =548
+        X: =50
+        Y: =428
+        ZIndex: =5
+
+    Label3 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        FontWeight: =FontWeight.Bold
+        Height: =70
+        Size: =30
+        Text: ="Ministry of Finance"
+        Width: =560
+        X: =50
+        Y: =323
+        ZIndex: =6
+
+    Button3 As button:
+        Fill: =RGBA(128, 128, 128, 1)
+        Height: =70
+        OnSelect: =Navigate(Screen1, ScreenTransition.Fade)
+        Size: =24
+        Text: ="ClockIn"
+        Width: =280
+        X: =173
+        Y: =976
+        ZIndex: =7
+

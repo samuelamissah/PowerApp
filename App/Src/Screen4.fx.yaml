@@ -1,0 +1,20 @@
+Screen4 As screen:
+
+    Camera1 As camera:
+        Camera: =0
+        Height: =649
+        OnSelect: =
+        Width: =640
+        Y: =30
+        ZIndex: =1
+
+    Button5 As button:
+        Height: =70
+        OnSelect: =
+        Size: =24
+        Text: ="Button"
+        Width: =280
+        X: =180
+        Y: =923
+        ZIndex: =2
+

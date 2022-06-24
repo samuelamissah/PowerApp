@@ -1,0 +1,122 @@
+{
+  "20ca9c64-4a00-4099-be10-12f2a60c383d": {
+    "connectionParameters": {
+      "applicationId": "5a17f939-b71b-4328-bd47-a64a1ae2478f",
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Power Apps Notification",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1539/1.0.1539.2620/powerappsnotification/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_powerappsnotification",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_powerappsnotification/connections/21776a4402cc448fbc5b8b888fe1521c"
+    },
+    "datasets": {},
+    "dataSources": [
+      "PowerAppsNotification"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "20ca9c64-4a00-4099-be10-12f2a60c383d"
+  },
+  "6743c71c-0d61-4f7c-95c9-7d368855afae": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Bing Maps",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1567/1.0.1567.2748/bingmaps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_bingmaps",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_bingmaps/connections/badeefe825b24f88b683f1e5e9510c2a"
+    },
+    "datasets": {},
+    "dataSources": [
+      "BingMaps"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6743c71c-0d61-4f7c-95c9-7d368855afae"
+  },
+  "b156cc4c-47ce-4438-a9da-e4f1139666e3": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive",
+      "iconUri": "https://connectoricons-prod.azureedge.net/depfeife/special-train/1.0.1489.2478/onedrive/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedrive",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "e3f0fda8-c202-4bb0-9b2b-2fdc67635308"
+    ],
+    "id": "b156cc4c-47ce-4438-a9da-e4f1139666e3"
+  },
+  "cc04ec0b-8485-4f2c-b0d7-cc7986f4780f": {
+    "connectionParameters": {},
+    "connectionRef": {
+      "apiTier": "Standard",
+      "authenticationType": "shared-application",
+      "displayName": "Gmail",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1571/1.0.1571.2770/gmail/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_gmail",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Gmail"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "cc04ec0b-8485-4f2c-b0d7-cc7986f4780f"
+  },
+  "e3f0fda8-c202-4bb0-9b2b-2fdc67635308": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1570/1.0.1570.2764/excel/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excel",
+      "parameterHints": {
+        "b156cc4c-47ce-4438-a9da-e4f1139666e3": {
+          "value": "fileSource"
+        }
+      },
+      "parameterHintsV2": {
+        "fileSource": {
+          "value": "b156cc4c-47ce-4438-a9da-e4f1139666e3"
+        }
+      }
+    },
+    "datasets": {
+      "FC85767BA4617FAC!3476": {
+        "dataSources": {
+          "Table1": {
+            "tableName": "Table1"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Table1"
+    ],
+    "dependencies": {
+      "fileSource": "b156cc4c-47ce-4438-a9da-e4f1139666e3"
+    },
+    "dependents": [],
+    "id": "e3f0fda8-c202-4bb0-9b2b-2fdc67635308"
+  }
+}
