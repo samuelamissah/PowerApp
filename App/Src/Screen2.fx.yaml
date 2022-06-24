@@ -1,0 +1,47 @@
+"Screen2 As screen.'phoneLayout_Success_ver3.0'":
+    Fill: =If(Hour(Now()) < 12, RGBA(255, 97, 4, 0.71), Hour(Now())< 16, RGBA(23, 19, 22, 0.71), Hour(Now()) > 16, RGBA(100, 84, 83, 0.77))
+
+    iconCircle1 As circle.Circle:
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =1
+
+    iconCheck1 As icon.Check:
+        Height: =iconCircle1.Height
+        Icon: =Icon.Check
+        PaddingBottom: =Self.PaddingTop
+        PaddingLeft: =Self.PaddingTop
+        PaddingRight: =Self.PaddingTop
+        PaddingTop: =18
+        Width: =iconCircle1.Width
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =2
+
+    LblSuccessMsg1 As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        Height: =iconCircle1.Height
+        Size: =21
+        Text: ="This was successfully completed"
+        Width: =Parent.Width * 0.75
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =iconCheck1.Y + iconCheck1.Height + 100
+        ZIndex: =3
+
+    Icon1 As icon.BackArrow:
+        Height: =126
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Screen1,ScreenTransition.Cover)
+        Width: =120
+        X: =6
+        Y: =1010
+        ZIndex: =4
+
+    Icon2 As icon.Cancel:
+        Icon: =Icon.Cancel
+        OnSelect: =Exit(true)
+        X: =540
+        Y: =20
+        ZIndex: =5
+

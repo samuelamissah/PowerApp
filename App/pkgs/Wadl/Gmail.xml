@@ -1,0 +1,271 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://unitedstates-002.azure-apim.net/apim/gmail" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="Gmail" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="Gmail">Gmail is a web-based email service from Google. With the Gmail connector, you can perform actions such as send or receive e-mail messages, and trigger flows on new e-mails.</doc>
+  <grammars>
+    <jsonTypes targetNamespace="https://unitedstates-002.azure-apim.net/apim/gmail" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="GmailLabel_Id_def" />
+      <string name="GmailLabel_DisplayName_def" />
+      <object name="GmailLabel">
+        <property name="Id" type="string" />
+        <property name="DisplayName" type="string" />
+      </object>
+      <string name="DetailedReceiveMessage_From_def" />
+      <string name="DetailedReceiveMessage_SenderName_def" />
+      <string name="DetailedReceiveMessage_To_def" />
+      <string name="DetailedReceiveMessage_Cc_def" />
+      <string name="DetailedReceiveMessage_Bcc_def" />
+      <string name="DetailedReceiveMessage_Subject_def" />
+      <string name="DetailedReceiveMessage_Body_def" />
+      <string name="DetailedReceiveMessage_Snippet_def" />
+      <string name="DetailedReceiveMessage_LabelIds_def_items_def" />
+      <array type="string" name="DetailedReceiveMessage_LabelIds_def" />
+      <dateTimeString name="DetailedReceiveMessage_DateTimeReceived_def" />
+      <integer name="DetailedReceiveMessage_EstimatedSize_def" />
+      <boolean name="DetailedReceiveMessage_IsRead_def" />
+      <boolean name="DetailedReceiveMessage_IsHtml_def" />
+      <boolean name="DetailedReceiveMessage_HasAttachments_def" />
+      <array typeRef="Attachment" name="DetailedReceiveMessage_Attachments_def" />
+      <string name="DetailedReceiveMessage_Id_def" />
+      <string name="DetailedReceiveMessage_ThreadId_def" />
+      <object name="DetailedReceiveMessage">
+        <property name="From" type="string" />
+        <property name="SenderName" type="string" />
+        <property name="To" type="string" />
+        <property name="Cc" type="string" />
+        <property name="Bcc" type="string" />
+        <property name="Subject" type="string" />
+        <property name="Body" type="string" />
+        <property name="Snippet" type="string" />
+        <property name="LabelIds" typeRef="DetailedReceiveMessage_LabelIds_def" />
+        <property name="DateTimeReceived" typeRef="DetailedReceiveMessage_DateTimeReceived_def" />
+        <property name="EstimatedSize" type="integer" />
+        <property name="IsRead" type="boolean" />
+        <property name="IsHtml" type="boolean" />
+        <property name="HasAttachments" type="boolean" />
+        <property name="Attachments" typeRef="DetailedReceiveMessage_Attachments_def" />
+        <property name="Id" type="string" />
+        <property name="ThreadId" type="string" />
+      </object>
+      <string name="Attachment_Name_def" />
+      <base64Binary name="Attachment_ContentBytes_def" />
+      <string name="Attachment_ContentType_def" />
+      <object name="Attachment">
+        <property name="Name" type="string" />
+        <property name="ContentBytes" typeRef="Attachment_ContentBytes_def" />
+        <property name="ContentType" type="string" />
+      </object>
+      <string name="SendMessage_To_def" />
+      <string name="SendMessage_Cc_def" />
+      <string name="SendMessage_Bcc_def" />
+      <string name="SendMessage_Subject_def" />
+      <string name="SendMessage_Body_def" />
+      <boolean name="SendMessage_IsHtml_def" />
+      <string name="SendMessage_Importance_def" />
+      <array typeRef="Attachment" name="SendMessage_Attachments_def" />
+      <object name="SendMessage">
+        <property name="To" type="string" />
+        <property name="Cc" type="string" />
+        <property name="Bcc" type="string" />
+        <property name="Subject" type="string" />
+        <property name="Body" type="string" />
+        <property name="IsHtml" type="boolean" />
+        <property name="Importance" type="string" />
+        <property name="Attachments" typeRef="SendMessage_Attachments_def" />
+      </object>
+      <string name="SendHtmlMessage_To_def" />
+      <string name="SendHtmlMessage_Cc_def" />
+      <string name="SendHtmlMessage_Bcc_def" />
+      <string name="SendHtmlMessage_Subject_def" />
+      <string name="SendHtmlMessage_Body_def" />
+      <string name="SendHtmlMessage_Importance_def" />
+      <array typeRef="Attachment" name="SendHtmlMessage_Attachments_def" />
+      <object name="SendHtmlMessage">
+        <property name="To" type="string" />
+        <property name="Cc" type="string" />
+        <property name="Bcc" type="string" />
+        <property name="Subject" type="string" />
+        <property name="Body" type="string" />
+        <property name="Importance" type="string" />
+        <property name="Attachments" typeRef="SendHtmlMessage_Attachments_def" />
+      </object>
+      <string name="ReplyMessage_To_def" />
+      <string name="ReplyMessage_Cc_def" />
+      <string name="ReplyMessage_Bcc_def" />
+      <string name="ReplyMessage_Subject_def" />
+      <string name="ReplyMessage_Body_def" />
+      <boolean name="ReplyMessage_ReplyAll_def" />
+      <boolean name="ReplyMessage_IsHtml_def" />
+      <string name="ReplyMessage_Importance_def" />
+      <array typeRef="Attachment" name="ReplyMessage_Attachments_def" />
+      <object name="ReplyMessage">
+        <property name="To" type="string" />
+        <property name="Cc" type="string" />
+        <property name="Bcc" type="string" />
+        <property name="Subject" type="string" />
+        <property name="Body" type="string" />
+        <property name="ReplyAll" type="boolean" />
+        <property name="IsHtml" type="boolean" />
+        <property name="Importance" type="string" />
+        <property name="Attachments" typeRef="ReplyMessage_Attachments_def" />
+      </object>
+      <string name="ReplyHtmlMessage_To_def" />
+      <string name="ReplyHtmlMessage_Cc_def" />
+      <string name="ReplyHtmlMessage_Bcc_def" />
+      <string name="ReplyHtmlMessage_Subject_def" />
+      <string name="ReplyHtmlMessage_Body_def" />
+      <boolean name="ReplyHtmlMessage_ReplyAll_def" />
+      <string name="ReplyHtmlMessage_Importance_def" />
+      <array typeRef="Attachment" name="ReplyHtmlMessage_Attachments_def" />
+      <object name="ReplyHtmlMessage">
+        <property name="To" type="string" />
+        <property name="Cc" type="string" />
+        <property name="Bcc" type="string" />
+        <property name="Subject" type="string" />
+        <property name="Body" type="string" />
+        <property name="ReplyAll" type="boolean" />
+        <property name="Importance" type="string" />
+        <property name="Attachments" typeRef="ReplyHtmlMessage_Attachments_def" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://unitedstates-002.azure-apim.net/apim/gmail">
+    <resource path="/{connectionId}/Mail/{id}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="id" type="xs:string" required="true">
+        <doc title="Unique id of the email message." />
+      </param>
+      <method siena:requiresAuthentication="true" name="GET" id="GetEmail" actionName="GetEmail" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Get email details&#xA;This operation retrieves the details of a specific email." />
+        <request>
+          <param style="query" name="includeAttachments" type="xs:boolean" default="false">
+            <doc title="If set to true, attachments will also be retrieved along with the email." />
+          </param>
+        </request>
+        <response>
+          <representation mediaType="application/json" element="service:DetailedReceiveMessage" />
+        </response>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Mail/{id}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="id" type="xs:string" required="true">
+        <doc title="Id of the email to delete." />
+      </param>
+      <method siena:requiresAuthentication="true" name="DELETE" id="DeleteEmail" actionName="DeleteEmail" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Delete email&#xA;This operation is used to delete a specific email permanently." />
+        <request />
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Mail">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="SendEmail" actionName="SendEmail" visibility="important" siena:isDeprecated="true" siena:family="SendEmail" siena:revision="1" siena:status="Production">
+        <doc title="Send email&#xA;This operation is used to send an email to specific recipients." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="To" path="/To" type="xs:string" required="true" />
+            <param style="plain" name="Cc" path="/Cc" type="xs:string" />
+            <param style="plain" name="Bcc" path="/Bcc" type="xs:string" />
+            <param style="plain" name="Subject" path="/Subject" type="xs:string" />
+            <param style="plain" name="Body" path="/Body" type="xs:string" />
+            <param style="plain" name="IsHtml" path="/IsHtml" type="xs:boolean" />
+            <param style="plain" name="Importance" path="/Importance" type="xs:string">
+              <option value="Normal" />
+              <option value="Low" />
+              <option value="High" />
+            </param>
+            <param style="plain" name="Attachments" path="/Attachments" type="service:SendMessage_Attachments_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v2/Mail">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="SendEmailV2" actionName="SendEmailV2" visibility="important" siena:isDeprecated="false" siena:family="SendEmail" siena:revision="2" siena:status="Production">
+        <doc title="Send email (V2)&#xA;This operation is used to send an email to specific recipients." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="To" path="/To" type="xs:string" required="true" />
+            <param style="plain" name="Cc" path="/Cc" type="xs:string" />
+            <param style="plain" name="Bcc" path="/Bcc" type="xs:string" />
+            <param style="plain" name="Subject" path="/Subject" type="xs:string" />
+            <param style="plain" name="Body" path="/Body" type="xs:string" />
+            <param style="plain" name="Importance" path="/Importance" type="xs:string">
+              <option value="Normal" />
+              <option value="Low" />
+              <option value="High" />
+            </param>
+            <param style="plain" name="Attachments" path="/Attachments" type="service:SendHtmlMessage_Attachments_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Mail/ReplyTo/{id}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="id" type="xs:string" required="true">
+        <doc title="Id of the email to reply to." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="ReplyTo" actionName="ReplyTo" visibility="important" siena:isDeprecated="true" siena:family="ReplyTo" siena:revision="1" siena:status="Production">
+        <doc title="Reply to email&#xA;This operation is used to reply to a specific email." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="To" path="/To" type="xs:string" />
+            <param style="plain" name="Cc" path="/Cc" type="xs:string" />
+            <param style="plain" name="Bcc" path="/Bcc" type="xs:string" />
+            <param style="plain" name="Subject" path="/Subject" type="xs:string" />
+            <param style="plain" name="Body" path="/Body" type="xs:string" />
+            <param style="plain" name="ReplyAll" path="/ReplyAll" type="xs:boolean" />
+            <param style="plain" name="IsHtml" path="/IsHtml" type="xs:boolean" />
+            <param style="plain" name="Importance" path="/Importance" type="xs:string">
+              <option value="Normal" />
+              <option value="Low" />
+              <option value="High" />
+            </param>
+            <param style="plain" name="Attachments" path="/Attachments" type="service:ReplyMessage_Attachments_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/v2/Mail/ReplyTo/{id}">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="id" type="xs:string" required="true">
+        <doc title="Id of the email to reply to." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="ReplyToV2" actionName="ReplyToV2" visibility="important" siena:isDeprecated="false" siena:family="ReplyTo" siena:revision="2" siena:status="Production">
+        <doc title="Reply to email (V2)&#xA;This operation is used to reply to a specific email." />
+        <request>
+          <representation mediaType="application/json">
+            <param style="plain" name="To" path="/To" type="xs:string" />
+            <param style="plain" name="Cc" path="/Cc" type="xs:string" />
+            <param style="plain" name="Bcc" path="/Bcc" type="xs:string" />
+            <param style="plain" name="Subject" path="/Subject" type="xs:string" />
+            <param style="plain" name="Body" path="/Body" type="xs:string" />
+            <param style="plain" name="ReplyAll" path="/ReplyAll" type="xs:boolean" />
+            <param style="plain" name="Importance" path="/Importance" type="xs:string">
+              <option value="Normal" />
+              <option value="Low" />
+              <option value="High" />
+            </param>
+            <param style="plain" name="Attachments" path="/Attachments" type="service:ReplyHtmlMessage_Attachments_def" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+    <resource path="/{connectionId}/Mail/{id}/trash">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <param style="template" name="id" type="xs:string" required="true">
+        <doc title="ID of the email to move to the trash." />
+      </param>
+      <method siena:requiresAuthentication="true" name="POST" id="TrashEmail" actionName="TrashEmail" visibility="advanced" siena:isDeprecated="false">
+        <doc title="Move email to trash&#xA;This operation is used to move a specific email to trash." />
+        <request />
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="shared_gmail" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>

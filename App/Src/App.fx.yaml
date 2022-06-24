@@ -1,0 +1,6 @@
+App As appinfo:
+    BackEnabled: =App.ActiveScreen
+    ConfirmExit: =true
+    OnStart: =
+    StartScreen: =
+
