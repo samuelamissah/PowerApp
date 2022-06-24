@@ -2,6 +2,7 @@ Screen5 As screen:
 
     Form2 As form:
         DataSource: =Table1
+        Height: =480
         Width: =640
         Y: =70
         ZIndex: =1
